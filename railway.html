@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Reservation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            background-image: url('train-background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        header {
+            background-color: #800000;
+            color: white;
+            padding: 1.5em;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            background-color: #ffcc00;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-radius: 10px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #800000;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            color: #000;
+            border-radius: 10px;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 10px;
+            background-color: #ffcc00;
+            color: #800000;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff9900;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #800000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚆 Train Reservation System 🚆</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#user-panel">User Panel</a></li>
+            <li><a href="#admin-panel">Admin Panel</a></li>
+        </ul>
+    </nav>
+    
+    <section id="user-panel">
+        <h2>User Panel</h2>
+        <button onclick="showRegister()">Register</button>
+        <button onclick="showLogin()">Login</button>
+        <button onclick="forgotUserID()">Forgot User ID</button>
+        <div id="user-form"></div>
+    </section>
+    
+    <section id="admin-panel">
+        <h2>Admin Panel</h2>
+        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+        <button onclick="checkAdmin()">Login as Admin</button>
+    </section>
+    
+    <script>
+        function showRegister() {
+            document.getElementById("user-form").innerHTML = `
+                <h3>Register</h3>
+                <input type="text" placeholder="User ID" id="userId">
+                <input type="text" placeholder="Name" id="userName">
+                <input type="text" placeholder="Phone" id="userPhone">
+                <input type="email" placeholder="Email" id="userEmail">
+                <input type="password" placeholder="Password" id="userPassword">
+                <button onclick="registerUser()">Submit</button>
+            `;
+        }
+        
+        function showLogin() {
+            document.getElementById("user-form").innerHTML = `
+                <h3>Login</h3>
+                <input type="text" placeholder="User ID" id="loginUserId">
+                <input type="password" placeholder="Password" id="loginPassword">
+                <button onclick="loginUser()">Login</button>
+            `;
+        }
+        
+        function forgotUserID() {
+            document.getElementById("user-form").innerHTML = `
+                <h3>Forgot User ID</h3>
+                <input type="email" placeholder="Enter your email" id="forgotEmail">
+                <button onclick="retrieveUserID()">Retrieve</button>
+            `;
+        }
+        
+        function checkAdmin() {
+            const password = document.getElementById("adminPassword").value;
+            if (password === "admin123") {
+                alert("Access granted to Admin Panel.");
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+        
+        function registerUser() {
+            alert("User registered successfully!");
+        }
+        
+        function loginUser() {
+            alert("Login successful!");
+        }
+        
+        function retrieveUserID() {
+            alert("User ID has been sent to your email.");
+        }
+    </script>
+</body>
+</html>
